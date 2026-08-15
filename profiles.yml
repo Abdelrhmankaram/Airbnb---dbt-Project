@@ -1,0 +1,16 @@
+airbnb:
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('ACCOUNT') }}"
+      user: dbt
+
+      role: "{{ env_var('ROLE') }}"
+      private_key_path: "{{ env_var('PRIVATE_KEY_PATH') }}"
+
+      database: "{{ env_var('DATABASE') }}"
+      schema: "{{ env_var('SCHEMA') }}"
+      threads: 1
+      warehouse: "{{ env_var('WAREHOUSE') }}"
+
+  target: dev
