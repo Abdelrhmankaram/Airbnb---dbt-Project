@@ -11,7 +11,7 @@ with src_hosts as (
 SELECT
     host_id,
     CASE 
-        WHEN host_name is null THEN 'Anonymoust' 
+        WHEN host_name is null THEN 'Anonymous' 
         ELSE  host_name
     END as host_name,
     is_superhost,

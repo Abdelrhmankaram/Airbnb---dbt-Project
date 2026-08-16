@@ -1,4 +1,3 @@
-
 models:
   - name: dim_listings
     description: Cleansed table which contains Airbnb listings.
@@ -32,21 +31,34 @@ models:
           - positive_values
 
   - name: dim_hosts
+    config:
+      contract:
+        enforced: true
+    
     columns:
       - name: host_id
+        data_type: integer
         data_tests:
           - not_null
           - unique
 
       - name: host_name
+        data_type: string
         data_tests:
           - not_null
 
       - name: is_superhost
+        data_type: boolean
         data_tests:
           - accepted_values:
               arguments:
                 values: [true, false]
+
+      - name: updated_at
+        data_type: timestamp
+
+      - name: created_at
+        data_type: timestamp
 
   - name: fact_reviews
     columns:
