@@ -1,8 +1,12 @@
 models:
   - name: dim_listings
     description: Cleansed table which contains Airbnb listings.
+    data_tests:
+      - minimum_row_count:
+          arguments:
+            min_row_count: 1000
+    
     columns:
-
       - name: listing_id
         description: Primary key for the listing
         data_tests:
@@ -38,12 +42,18 @@ models:
     columns:
       - name: host_id
         data_type: integer
+        constraints:
+          - type: not_null
+          - type: unique
+
         data_tests:
           - not_null
           - unique
 
       - name: host_name
         data_type: string
+        constraints:
+          - type: not_null
         data_tests:
           - not_null
 
@@ -78,4 +88,3 @@ models:
           - accepted_values:
               arguments:
                 values: ['positive', 'neutral', 'negative']
-
