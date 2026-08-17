@@ -10,6 +10,7 @@ with src_reviews as (
 )
 
 SELECT
+    {{ dbt_utils.generate_surrogate_key(['listing_id', 'review_date']) }} as review_id,
     *
 FROM src_reviews
 where review_text is not NULL
