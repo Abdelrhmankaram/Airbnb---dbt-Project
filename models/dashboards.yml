@@ -1,0 +1,19 @@
+version: 2
+
+
+exposures:
+  - name: executive_dashboard
+    label: Executive Dashboard
+    type: dashboard
+    maturity: low
+    url: https://47a6c613.us1a.app.preset.io/superset/dashboard/8/?native_filters_key=WxLW0d5ZMSiL-34B7InCbg
+    description: Executive Dashboard about Airbnb listings and hosts
+
+
+    depends_on:
+      - ref('dim_listings_w_hosts')
+      - ref('mart_fullmoon_reviews')
+
+    owner:
+      name: Abdelrahman Karam Mahmoud
+      email: abdelrhmankaram171@gmail.com
